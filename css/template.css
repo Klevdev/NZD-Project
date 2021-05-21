@@ -40,6 +40,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'rubik-light';
+    src: url('/css/fonts/Rubik/Rubik-Light.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *,
 *::after,
 *::before {
@@ -184,4 +191,114 @@ footer .contacts--block a:first-child {
 
 footer .contacts--block div {
     margin-left: 15px;
+}
+
+.background--block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background--block form {
+    padding: 50px 125px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.background--block .title {
+    font-family: montserrat-bold;
+    font-size: 30px;
+    color: #000000;
+    margin-bottom: 50px;
+}
+
+.background--block .login--form .field--block {
+    margin-bottom: 30px;
+}
+
+.background--block .signup--form .field--block {
+    margin-right: 30px;
+}
+
+.background--block .signup--form .field--block:last-child {
+    margin-right: 0;
+}
+
+.background--block .field--block label {
+    font-size: 13px;
+    font-family: rubik-medium;
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+.background--block .field--block input {
+    width: 250px;
+    padding: 15px 20px 16px;
+    font-size: 16px;
+    font-family: rubik-medium;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 3px;
+}
+
+.background--block .form--block {
+    display: flex;
+    align-items: flex-start;
+}
+
+.background--block form button {
+    color: #ffffff;
+    width: 250px;
+    padding: 15px 0 16px;
+    font-size: 16px;
+    font-family: rubik-bold;
+    border: none;
+    border-radius: 3px;
+    background-color: #2787F5;
+    margin: 20px 0 30px;
+}
+
+.background--block form button:hover {
+    background-color: #2070c8;
+}
+
+.background--block .close--button {
+    background-color: inherit;
+    border: none;
+    margin-left: 10px;
+}
+
+.background--block .close--button:hover path {
+    fill: #ffffff;
+}
+
+.background--block .another-form--link {
+    line-height: 25px;
+    font-family: montserrat-medium;
+    color: #000000;
+    font-size: 13px;
+    text-align: center;
+}
+
+.background--block .another-form--link a {
+    font-family: montserrat-semibold;
+    color: #2787F5;
+    text-decoration: underline;
+}
+
+.background--block .row--block {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
 }

@@ -66,6 +66,7 @@ body {
 a {
     cursor: pointer;
     text-decoration: none;
+    transition: opacity .1s;
 }
 
 a:hover {
@@ -74,6 +75,11 @@ a:hover {
 
 button {
     cursor: pointer;
+    transition: background-color .2s;
+}
+
+.logo--link:hover {
+    opacity: 100%;
 }
 
 .header-main-screen--block {
@@ -90,13 +96,9 @@ button {
     height: 40px;
 }
 
-.header-main-screen--block .logo--link:hover {
-    opacity: 100%;
-}
-
-
 .header-main-screen--block .links--block {
     display: flex;
+    margin-left: 85px;
 }
 
 .header-main-screen--block .links--block a {
@@ -113,7 +115,7 @@ button {
 }
 
 .header-main-screen--block .links--block a:last-child {
-    margin: 0;
+    margin-right: 0;
 }
 
 .header-main-screen--block .login-signup--link {
@@ -167,7 +169,7 @@ footer .links--block .links-column--block:last-child {
 
 footer .links--block a {
     display: block;
-    font-size: 16px;
+    font-size: 13px;
     margin-bottom: 20px;
     font-family: montserrat-regular;
     color: #000000;
@@ -193,6 +195,16 @@ footer .contacts--block div {
     margin-left: 15px;
 }
 
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .background--block {
     position: fixed;
     top: 0;
@@ -203,6 +215,8 @@ footer .contacts--block div {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: fade-in .3s;
+    transition: opacity .3s;
 }
 
 .background--block form {
@@ -212,6 +226,11 @@ footer .contacts--block div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 0;
+    animation: fade-in .3s;
+    animation-fill-mode: forwards;
+    animation-delay: .2s;
+    transition: opacity .2s;
 }
 
 .background--block .title {

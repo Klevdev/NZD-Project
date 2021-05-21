@@ -10,14 +10,14 @@
     flex-direction: column;
 }
 
-.title {
+.main-screen--block .title {
     margin-top: 70px;
     font-family: montserrat-bold;
     font-size: 30px;
     color: #ffffff;
 }
 
-.subtitle {
+.main-screen--block .subtitle {
     display: flex;
     align-items: center;
     margin: 15px 0 50px;
@@ -26,20 +26,20 @@
     color: #ffffff;
 }
 
-.subtitle div {
+.main-screen--block .subtitle div {
     margin: 0 20px;
     background-color: #ffffff;
     height: 20px;
     width: 1px;
 }
 
-form {
+.main-screen--block form {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-form button {
+.main-screen--block form button {
     padding: 15px 65px;
     font-size: 16px;
     font-family: rubik-bold;
@@ -49,17 +49,17 @@ form button {
     color: #ffffff;
 }
 
-form button:hover {
+.main-screen--block form button:hover {
     background-color: #2070c8;
 }
 
-.row--block {
+.main-screen--block .row--block {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
 }
 
-.change--button {
+.main-screen--block .change--button {
     margin-top: 20px;
     width: 30px;
     height: 30px;
@@ -72,24 +72,24 @@ form button:hover {
     justify-content: center;
 }
 
-.change--button:hover {
+.main-screen--block .change--button:hover {
     background-color: #2070c8;
 }
 
-.row--block:nth-child(1) .field--block:nth-child(1),
-.change--button {
+.main-screen--block .row--block:nth-child(1) .field--block:nth-child(1),
+.main-screen--block .change--button {
     margin-right: 30px;
 }
 
-.row--block:nth-child(2) {
+.main-screen--block .row--block:nth-child(2) {
     margin-bottom: 50px;
 }
 
-.row--block:nth-child(2) .field--block:nth-child(1) {
+.main-screen--block .row--block:nth-child(2) .field--block:nth-child(1) {
     margin-right: 90px;
 }
 
-.field--block input {
+.main-screen--block .field--block input {
     padding: 15px 20px 16px;
     font-size: 16px;
     font-family: rubik-medium;
@@ -100,18 +100,18 @@ form button:hover {
     width: 250px;
 }
 
-.field--block div {
+.main-screen--block .field--block div {
     display: flex;
     align-items: center;
 }
 
-.field--block div input {
+.main-screen--block .field--block div input {
     width: 130px;
     border-radius: 0;
     text-align: center;
 }
 
-.field--block div button {
+.main-screen--block .field--block div button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,18 +121,105 @@ form button:hover {
     border-radius: 0 3px 3px 0;
 }
 
-.field--block div button:nth-child(1) {
+.main-screen--block .field--block div button:nth-child(1) {
     border-radius: 3px 0 0 3px;
 }
 
-.field--block div button:hover svg path {
+.main-screen--block .field--block div button:hover svg path {
     fill: #2070c8;
 }
 
-.field--block label {
+.main-screen--block .field--block label {
     display: block;
     color: #ffffff;
     font-size: 13px;
     margin-bottom: 5px;
     font-family: rubik-medium;
+}
+
+.routes--block,
+.trains--block {
+    width: 100%;
+    padding: 0 150px;
+    margin-top: 100px;
+}
+
+.routes--block .title,
+.trains--block .title {
+    font-family: montserrat-semibold;
+    font-size: 30px;
+    color: #000000;
+}
+
+.routes--block .subtitle,
+.trains--block .subtitle {
+    font-family: montserrat-regular;
+    font-size: 16px;
+    color: #000000;
+    margin: 10px 0 30px;
+}
+
+.routes--block .subtitle span,
+.trains--block .subtitle span {
+    font-family: montserrat-medium;
+    color: #2787F5;
+}
+
+.routes--block .routes--block-1 div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.routes--block .routes--block-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.routes--block .routes--block-1 .route--link.main {
+    width: 520px;
+    height: 500px;
+}
+
+.routes--block .routes--block-1 .route--link {
+    width: 520px;
+    height: 240px;
+    padding: 50px;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 3px;
+}
+
+.routes--block .routes--block-1 .route--link:last-child {
+    margin: 0;
+}
+
+.routes--block .routes--block-1 .route--link div {
+    font-family: montserrat-bold;
+    font-size: 25px;
+    color: #ffffff;
+}
+
+.trains--block .trains--block-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.trains--block .trains--block-1 .train--link {
+    width: 383px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-radius: 3px;
+    padding: 50px;
+}
+
+.trains--block .trains--block-1 .train--link div {
+    text-align: center;
+    font-family: montserrat-bold;
+    font-size: 30px;
+    color: #ffffff;
 }

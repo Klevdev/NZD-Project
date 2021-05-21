@@ -32,12 +32,56 @@
                 <div class="field--block">
                     <label for="count">Количество человек</label>
                     <div>
-                        <button><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.57757 9.41073C3.73385 9.25445 3.94582 9.16666 4.16683 9.16666H15.8335C15.8335 9.16666 16.2665 9.25445 16.4228 9.41073C16.579 9.56701 16.6668 9.77898 16.6668 9.99999C16.6668 10.221 16.579 10.433 16.4228 10.5892C16.2665 10.7455 16.0545 10.8333 15.8335 10.8333H4.16683C3.94582 10.8333 3.73385 10.7455 3.57757 10.5892C3.42129 10.433 3.3335 10.221 3.3335 9.99999C3.3335 9.77898 3.42129 9.56701 3.57757 9.41073Z" fill="#2787F5"/></svg></button>
-                        <input style="display: inline-block; cursor: default;" name="count" type="text" value="1 чел." readonly>
-                        <button><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15.8335 9.16668H10.8335V4.16668C10.8335 3.94566 10.7457 3.7337 10.5894 3.57742C10.4331 3.42114 10.2212 3.33334 10.0002 3.33334C9.77915 3.33334 9.56719 3.42114 9.41091 3.57742C9.25463 3.7337 9.16683 3.94566 9.16683 4.16668V9.16668H4.16683C3.94582 9.16668 3.73385 9.25447 3.57757 9.41075C3.42129 9.56703 3.3335 9.779 3.3335 10C3.3335 10.221 3.42129 10.433 3.57757 10.5893C3.73385 10.7455 3.94582 10.8333 4.16683 10.8333H9.16683V15.8333C9.16683 16.0544 9.25463 16.2663 9.41091 16.4226C9.56719 16.5789 9.77915 16.6667 10.0002 16.6667C10.2212 16.6667 10.4331 16.5789 10.5894 16.4226C10.7457 16.2663 10.8335 16.0544 10.8335 15.8333V10.8333H15.8335C16.0545 10.8333 16.2665 10.7455 16.4228 10.5893C16.579 10.433 16.6668 10.221 16.6668 10C16.6668 9.779 16.579 9.56703 16.4228 9.41075C16.2665 9.25447 16.0545 9.16668 15.8335 9.16668Z" fill="#2787F5"/></svg></button>
+                        <button type="button" onclick="field_increment(false);"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.57757 9.41073C3.73385 9.25445 3.94582 9.16666 4.16683 9.16666H15.8335C15.8335 9.16666 16.2665 9.25445 16.4228 9.41073C16.579 9.56701 16.6668 9.77898 16.6668 9.99999C16.6668 10.221 16.579 10.433 16.4228 10.5892C16.2665 10.7455 16.0545 10.8333 15.8335 10.8333H4.16683C3.94582 10.8333 3.73385 10.7455 3.57757 10.5892C3.42129 10.433 3.3335 10.221 3.3335 9.99999C3.3335 9.77898 3.42129 9.56701 3.57757 9.41073Z" fill="#2787F5"/></svg></button>
+                        <input style="display: inline-block; cursor: default;" name="count" type="text" value="1 чел." readonly id="count">
+                        <button type="button" onclick="field_increment(true);"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15.8335 9.16668H10.8335V4.16668C10.8335 3.94566 10.7457 3.7337 10.5894 3.57742C10.4331 3.42114 10.2212 3.33334 10.0002 3.33334C9.77915 3.33334 9.56719 3.42114 9.41091 3.57742C9.25463 3.7337 9.16683 3.94566 9.16683 4.16668V9.16668H4.16683C3.94582 9.16668 3.73385 9.25447 3.57757 9.41075C3.42129 9.56703 3.3335 9.779 3.3335 10C3.3335 10.221 3.42129 10.433 3.57757 10.5893C3.73385 10.7455 3.94582 10.8333 4.16683 10.8333H9.16683V15.8333C9.16683 16.0544 9.25463 16.2663 9.41091 16.4226C9.56719 16.5789 9.77915 16.6667 10.0002 16.6667C10.2212 16.6667 10.4331 16.5789 10.5894 16.4226C10.7457 16.2663 10.8335 16.0544 10.8335 15.8333V10.8333H15.8335C16.0545 10.8333 16.2665 10.7455 16.4228 10.5893C16.579 10.433 16.6668 10.221 16.6668 10C16.6668 9.779 16.579 9.56703 16.4228 9.41075C16.2665 9.25447 16.0545 9.16668 15.8335 9.16668Z" fill="#2787F5"/></svg></button>
                     </div>
                 </div>
             </div>
             <button type="submit">Найти билеты</button>
         </form>
 </div>
+<div class="routes--block">
+    <div class="title">Популярные маршруты</div>
+    <div class="subtitle">Самые популарные маршруты <span>в разные уголки мира</span></div>
+    <div class="routes--block-1">
+        <a href="#" class="route--link main" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/1.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <div>Санкт-Петербург -<br>Москва</div>
+        </a>
+        <div>
+            <a href="#" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/2.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+                <div>Москва -<br>Санкт-Петербург</div>
+            </a>
+            <a href="#" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/3.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+                <div>Санкт-Петербург -<br>Минск</div>
+            </a>
+        </div>
+        <div>
+            <a href="#" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/4.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+                <div>Москва -<br>Владивосток</div>
+            </a>
+            <a href="#" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/5.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+                <div>Москва -<br>Севастополь</div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="trains--block">
+    <div class="title">Позда компании «Новые Железные Дороги»</div>
+    <div class="subtitle">Наши поезда <span>- наша гордость</span></div>
+    <div class="trains--block-1">
+        <a href="#" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/1.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <div>Ибрагим</div>
+        </a>
+        <a href="#" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/2.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <div>Жан</div>
+        </a>
+        <a href="#" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/3.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <div>Николя</div>
+        </a>
+        <a href="#" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/4.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <div>Все<br>поезда</div>
+        </a>
+    </div>
+</div>
+<script src="/js/main-page.js"></script>

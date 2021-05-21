@@ -50,10 +50,10 @@
 }
 
 body {
-    background-color: #000;
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: #EDEEF0;
 }
 
 a {
@@ -71,7 +71,8 @@ button {
 
 .header-main-screen--block {
     margin-top: 30px;
-    width: 1620px;
+    width: 100%;
+    padding: 0 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -118,4 +119,69 @@ button {
     color: #ffffff;
     font-family: montserrat-semibold;
     text-decoration: underline;
+}
+
+footer {
+    width: 100%;
+    margin-top: 100px;
+    padding: 50px 150px;
+    background-color: #0000001A;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .logo-author {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+footer .logo--link:hover {
+    opacity: 100%;
+}
+
+footer .author {
+    font-size: 13px;
+    font-family: montserrat-regular;
+    color: #000000;
+}
+
+footer .links--block {
+    display: flex;
+}
+
+footer .links--block .links-column--block {
+    margin-right: 100px;
+}
+
+footer .links--block .links-column--block:last-child {
+    margin: 0;
+}
+
+footer .links--block a {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-family: montserrat-regular;
+    color: #000000;
+}
+
+footer .links--block a:last-child {
+    margin: 0;
+}
+
+footer .contacts--block a {
+    display: flex;
+    align-items: center;
+    color: #000000;
+    font-family: montserrat-regular;
+    font-size: 16px;
+}
+
+footer .contacts--block a:first-child {
+    margin-bottom: 20px;
+}
+
+footer .contacts--block div {
+    margin-left: 15px;
 }

@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/css/reset.css">
 	<link rel="stylesheet" href="/css/template.css">
-    <link rel="icon" href="/img/logos/logo_min_white.svg">
     <?php
     if (!empty($stylesheets))
         foreach ($stylesheets as $stylesheet)
@@ -22,7 +21,7 @@
     ?>
     <header class="header--block">
         <a class="logo--link" href="/">
-            <img src="/img/logos/logo_white.png" alt="НЖД">
+            <img src="/img/logos/logo_white.png">
         </a>
         <div class="links--block">
             <a href="/">Главная</a>
@@ -39,7 +38,7 @@
     <footer>
         <div class="logo-author">
             <a href="/" class="logo--link">
-                <img src="/img/logos/logo_black.png" alt="НЖД">
+                <img src="/img/logos/logo_black.png">
             </a>
             <div class="author">&#169; 2021 Все права защищены</div>
         </div>

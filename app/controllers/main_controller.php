@@ -7,6 +7,7 @@ class Main_Controller extends Controller {
 	}
 
 	function index_action() {
-		$this->view->generate('main_view.php', 'Главная страница');
+        $data['is_main_page'] = true;
+		$this->view->generate('main_view.php', 'Главная страница', ['main-page'], $data);
 	}
 }

@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'montserrat-regular';
+    src: url('/css/fonts/Montserrat/Montserrat-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'montserrat-medium';
+    src: url('/css/fonts/Montserrat/Montserrat-Medium.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'montserrat-bold';
+    src: url('/css/fonts/Montserrat/Montserrat-Bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'montserrat-semibold';
+    src: url('/css/fonts/Montserrat/Montserrat-Semibold.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'rubik-medium';
+    src: url('/css/fonts/Rubik/Rubik-Medium.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'rubik-bold';
+    src: url('/css/fonts/Rubik/Rubik-Bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 80%;
+}
+
+button {
+    cursor: pointer;
+}
+
+.header-main-screen--block {
+    margin-top: 30px;
+    width: 1620px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-main-screen--block .logo--link img {
+    display: block;
+    height: 40px;
+}
+
+.header-main-screen--block .logo--link:hover {
+    opacity: 100%;
+}
+
+
+.header-main-screen--block .links--block {
+    display: flex;
+}
+
+.header-main-screen--block .links--block a {
+    color: #ffffff;
+    font-family: montserrat-medium;
+    font-size: 13px;
+    margin-right: 50px;
+    padding: 5px;
+}
+
+.header-main-screen--block .links--block a.active {
+    font-family: montserrat-semibold;
+    border-bottom: 1px solid #ffffff;
+}
+
+.header-main-screen--block .links--block a:last-child {
+    margin: 0;
+}
+
+.header-main-screen--block .login-signup--link {
+    font-family: montserrat-regular;
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.header-main-screen--block .login-signup--link a {
+    color: #ffffff;
+    font-family: montserrat-semibold;
+    text-decoration: underline;
+}

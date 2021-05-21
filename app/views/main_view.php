@@ -4,9 +4,9 @@
             <img src="/img/logos/logo_white.png" alt="НЖД">
         </a>
         <div class="links--block">
-            <a href="/"<?= ($data['is_main_page'] === true) ? ' class="active"' : '' ?>>Главная</a>
-            <a href="#"<?= ($data['is_train_page'] === true) ? ' class="active"' : '' ?>>Поезда</a>
-            <a href="#"<?= ($data['is_contacts_page'] === true) ? ' class="active"' : '' ?>>Контакты</a>
+            <a href="/" class="active">Главная</a>
+            <a href="#">Поезда</a>
+            <a href="#">Контакты</a>
         </div>
         <div class="login-signup--link"><a onclick="login();">Войти</a> или <a onclick="signup();">Зарегистрироваться</a></div>
     </header>

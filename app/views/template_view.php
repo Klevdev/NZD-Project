@@ -10,10 +10,7 @@
     if (!empty($stylesheets))
         foreach ($stylesheets as $stylesheet)
             echo "<link rel=\"stylesheet\" href=\"/css/$stylesheet.css\">";
-
-    if (isset($_SESSION['user']) || empty($_SESSION['user']))
-        echo "<script src=\"/js/login-signup.js\"></script>";
-	?>
+    ?>
 	<title><?php echo $view_title?></title>
 </head>
 <body>
@@ -29,7 +26,12 @@
             <a href="#"<?= ($data['is_train_page'] === true) ? ' class="active"' : '' ?>>Поезда</a>
             <a href="#"<?= ($data['is_contacts_page'] === true) ? ' class="active"' : '' ?>>Контакты</a>
         </div>
-        <div class="login-signup--link"><a href="#">Войти</a> или <a href="#">Зарегистрироваться</a></div>
+        <?php
+        if (isset($_SESSION['user']) && !empty($_SESSION['user']))
+            echo "<div class=\"user--panel\">".$_SESSION['user']['display_name']."</div>";
+        else
+            echo "<div class=\"login-signup--link\"><a href=\"#\">Войти</a> или <a href=\"#\">Зарегистрироваться</a></div>";
+        ?>
     </header>
     <?php
     }
@@ -70,5 +72,9 @@
             </a>
         </div>
     </footer>
+    <?php
+    if (!isset($_SESSION['user']) || empty($_SESSION['user']))
+        echo "<script src=\"/js/login-signup.js\"></script>";
+	?>
 </body>
 </html>

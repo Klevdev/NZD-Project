@@ -4,11 +4,11 @@ function login() {
     document.body.innerHTML +=
         '<div class="background--block">' +
             '<div class="form--block">' +
-                '<form class="login--form" action="" method="POST" novalidate autocomplete="off">' +
+                '<form class="login--form" action="/user/login" method="POST" novalidate autocomplete="off">' +
                     '<div class="title">Вход</div>' +
                     '<div class="field--block">' +
                         '<label for="email">Email</label>' +
-                        '<input name="email" type="email" placeholder="Email" required/>' +
+                        '<input name="email" type="email" placeholder="myemail@gmail.com" required/>' +
                     '</div>' +
                     '<div class="field--block">' +
                         '<label for="password">Пароль</label>' +
@@ -28,7 +28,7 @@ function signup() {
     document.body.innerHTML +=
         '<div class="background--block">' +
             '<div class="form--block">' +
-                '<form class="signup--form" action="" method="POST" novalidate autocomplete="off">' +
+                '<form class="signup--form" action="/user/signup" method="POST" novalidate autocomplete="off">' +
                     '<div class="title">Регистрация</div>' +
                     '<div class="row--block">' +
                         '<div class="field--block">' +
@@ -37,7 +37,7 @@ function signup() {
                         '</div>' +
                         '<div class="field--block">' +
                             '<label for="name">Имя</label>' +
-                            '<input name="name" type="text" placeholder="Имя" required/>' +
+                            '<input name="name" id="name" type="text" placeholder="Имя" required/>' +
                         '</div>' +
                         '<div class="field--block">' +
                             '<label for="patronymic">Отчество</label>' +
@@ -60,7 +60,7 @@ function signup() {
                             '<input name="password" type="password" placeholder="Пароль" required/>' +
                         '</div>' +
                         '<div class="field--block">' +
-                            '<label for="password">Подтвердите пароль</label>' +
+                            '<label for="password-repeat">Подтвердите пароль</label>' +
                             '<input name="password-repeat" type="password" placeholder="Повторите пароль" required/>' +
                         '</div>' +
                         '<div style="display: flex; align-items: flex-end; width: 250px; padding: 15px 0 16px; font-size: 13px; font-family: rubik-light; color: #00000080;">Пароль должен содержать<br>от 8 до 20 символов</div>' +

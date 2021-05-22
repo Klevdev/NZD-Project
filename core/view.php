@@ -20,4 +20,6 @@ class View {
 		
 		include 'app/views/'.$template_view;
 	}
+
+	
 }

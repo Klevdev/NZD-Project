@@ -24,7 +24,7 @@ class User_Model extends Model {
         $mysqli->close();
         return [
             'id' => $id,
-            'display_name' => strtoupper(substr($name, 0, 1)).'. '.$surname,
+            'display_name' => mb_strtoupper(mb_substr($name, 0, 1)).'. '.$surname,
         ];
     }
 
@@ -53,7 +53,7 @@ class User_Model extends Model {
         $result = $result->fetch_assoc();
         return  [
             'id' => $result['id'],
-            'display_name' => strtoupper(substr($result['name'], 0, 1)).'. '.$result['surname'],
+            'display_name' => mb_strtoupper(mb_substr($result['name'], 0, 1)).'. '.$result['surname'],
         ];
     }
 }

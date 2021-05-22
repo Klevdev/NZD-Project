@@ -82,7 +82,7 @@
             <div>Жан</div>
         </a>
         <a href="#" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/3.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
-            <div>Николя</div>
+            <div>Николь</div>
         </a>
         <a href="#" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/4.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
             <div>Все<br>поезда</div>

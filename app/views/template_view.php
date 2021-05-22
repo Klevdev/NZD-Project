@@ -5,17 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/css/reset.css">
 	<link rel="stylesheet" href="/css/template.css">
-    <link rel="icon" href="/img/logos/logo_min_white.svg">
     <?php
     if (!empty($stylesheets))
         foreach ($stylesheets as $stylesheet)
             echo "<link rel=\"stylesheet\" href=\"/css/$stylesheet.css\">";
     ?>
+    <link rel="icon" href="/img/logos/logo_min_white.svg">
 	<title><?php echo $view_title?></title>
 </head>
 <body>
     <?php
-    if(isset($data) && !$data['is_main_page'] === true) {
+    if(!isset($data['is_main_page']) || !$data['is_main_page'] === true) {
     ?>
     <header class="header--block">
         <a class="logo--link" href="/">
@@ -23,8 +23,8 @@
         </a>
         <div class="links--block">
             <a href="/">Главная</a>
-            <a href="#"<?= (isset($data) && $data['is_train_page'] === true) ? ' class="active"' : '' ?>>Поезда</a>
-            <a href="#"<?= (isset($data) && $data['is_contacts_page'] === true) ? ' class="active"' : '' ?>>Контакты</a>
+            <a href="#">Поезда</a>
+            <a href="#">Контакты</a>
         </div>
         <?php
         if (isset($_SESSION['user']) && !empty($_SESSION['user']))
@@ -33,10 +33,13 @@
             echo "<div class=\"login-signup--link\"><a href=\"#\" onclick=\"login();\">Войти</a> или <a href=\"#\" onclick=\"signup();\">Зарегистрироваться</a></div>";
         ?>
     </header>
+    <main>
     <?php
     }
+
     include 'app/views/' . $content_view;
     ?>
+    </main>
     <footer>
         <div class="logo-author">
             <a href="/" class="logo--link">

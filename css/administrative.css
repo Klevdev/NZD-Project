@@ -1,0 +1,15 @@
+.tabs {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tab {
+    padding: 0 20px;
+}
+
+.tabContent {
+    
+}

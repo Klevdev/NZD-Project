@@ -57,10 +57,16 @@
 }
 
 body {
+    padding-top: 60px;
     display: flex;
     align-items: center;
     flex-direction: column;
     background-color: #EDEEF0;
+}
+
+main {
+    min-height: 80vh;
+    padding: 0 150px;
 }
 
 a {
@@ -82,8 +88,11 @@ button {
     opacity: 100%;
 }
 
-.header-main-screen--block {
-    margin-top: 30px;
+.header--block {
+    height: 60px;
+    position: fixed;
+    top: 0;
+    background-color: #175090;
     width: 100%;
     padding: 0 150px;
     display: flex;
@@ -91,17 +100,17 @@ button {
     align-items: center;
 }
 
-.header-main-screen--block .logo--link img {
+.header--block .logo--link img {
     display: block;
     height: 40px;
 }
 
-.header-main-screen--block .links--block {
+.header--block .links--block {
     display: flex;
     margin-left: 85px;
 }
 
-.header-main-screen--block .links--block a {
+.header--block .links--block a {
     color: #ffffff;
     font-family: montserrat-medium;
     font-size: 13px;
@@ -109,23 +118,23 @@ button {
     padding: 5px;
 }
 
-.header-main-screen--block .links--block a.active {
+.header--block .links--block a.active {
     font-family: montserrat-semibold;
     border-bottom: 1px solid #ffffff;
 }
 
-.header-main-screen--block .links--block a:last-child {
+.header--block .links--block a:last-child {
     margin-right: 0;
 }
 
-.header-main-screen--block .login-signup--link {
+.header--block .login-signup--link {
     width: 221px;
     font-family: montserrat-regular;
     font-size: 13px;
     color: #ffffff;
 }
 
-.header-main-screen--block .login-signup--link a {
+.header--block .login-signup--link a {
     color: #ffffff;
     font-family: montserrat-semibold;
     text-decoration: underline;
@@ -341,4 +350,9 @@ footer .contacts--block div {
 
 .logout--link:hover {
     opacity: 80%;
+}
+.title {
+    font-family: montserrat-semibold;
+    font-size: 30px;
+    color: #000000;
 }

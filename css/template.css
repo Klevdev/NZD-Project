@@ -119,6 +119,7 @@ button {
 }
 
 .header-main-screen--block .login-signup--link {
+    width: 221px;
     font-family: montserrat-regular;
     font-size: 13px;
     color: #ffffff;
@@ -323,8 +324,21 @@ footer .contacts--block div {
 }
 
 .user--panel {
+    width: 221px;
     font-family: montserrat-regular;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bold;
     color: #ffffff;
+}
+
+.logout--link {
+    cursor: pointer;
+    transition: opacity .1s;
+    color: #ffffff;
+    font-family: montserrat-semibold;
+    text-decoration: underline;
+}
+
+.logout--link:hover {
+    opacity: 80%;
 }

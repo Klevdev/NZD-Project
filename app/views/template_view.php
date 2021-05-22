@@ -28,9 +28,9 @@
         </div>
         <?php
         if (isset($_SESSION['user']) && !empty($_SESSION['user']))
-            echo "<div class=\"user--panel\">".$_SESSION['user']['display_name']."</div>";
+            echo "<div class=\"user--panel\">".$_SESSION['user']['display_name']." <div class=\"logout--link\"><a href=\"/user/logout\">Выйти</a></div></div>";
         else
-            echo "<div class=\"login-signup--link\"><a href=\"#\">Войти</a> или <a href=\"#\">Зарегистрироваться</a></div>";
+            echo "<div class=\"login-signup--link\"><a href=\"#\" onclick=\"login();\">Войти</a> или <a href=\"#\" onclick=\"signup();\">Зарегистрироваться</a></div>";
         ?>
     </header>
     <?php

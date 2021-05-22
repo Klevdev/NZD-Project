@@ -77,6 +77,13 @@ class User_Controller extends Controller {
         header('Location: '.$host);
         echo "!";
         var_dump($_SESSION);
-        
+    }
+
+    public function logout_action(){
+        $this->model->remove_from_session('user');
+        $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
+        header('Location: '.$host);
+        echo "!";
+        var_dump($_SESSION);
     }
 }

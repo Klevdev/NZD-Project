@@ -8,7 +8,12 @@
             <a href="#">Поезда</a>
             <a href="#">Контакты</a>
         </div>
-        <div class="login-signup--link"><a onclick="login();">Войти</a> или <a onclick="signup();">Зарегистрироваться</a></div>
+        <?php
+        if (isset($_SESSION['user']) && !empty($_SESSION['user']))
+            echo "<div class=\"user--panel\">".$_SESSION['user']['display_name']."</div>";
+        else
+            echo "<div class=\"login-signup--link\"><a href=\"#\">Войти</a> или <a href=\"#\">Зарегистрироваться</a></div>";
+        ?>
     </header>
     <div class="title">Новые Железные Дороги</div>
     <div class="subtitle">Безопасность<div></div>Комфорт<div></div>Доступность</div>

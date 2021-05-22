@@ -321,3 +321,10 @@ footer .contacts--block div {
     display: flex;
     justify-content: space-between;
 }
+
+.user--panel {
+    font-family: montserrat-regular;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}

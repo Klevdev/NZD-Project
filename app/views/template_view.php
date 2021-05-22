@@ -15,7 +15,7 @@
 </head>
 <body>
     <?php
-    if(!$data['is_main_page'] === true) {
+    if(isset($data) && !$data['is_main_page'] === true) {
     ?>
     <header class="header--block">
         <a class="logo--link" href="/">
@@ -23,8 +23,8 @@
         </a>
         <div class="links--block">
             <a href="/">Главная</a>
-            <a href="#"<?= ($data['is_train_page'] === true) ? ' class="active"' : '' ?>>Поезда</a>
-            <a href="#"<?= ($data['is_contacts_page'] === true) ? ' class="active"' : '' ?>>Контакты</a>
+            <a href="#"<?= (isset($data) && $data['is_train_page'] === true) ? ' class="active"' : '' ?>>Поезда</a>
+            <a href="#"<?= (isset($data) && $data['is_contacts_page'] === true) ? ' class="active"' : '' ?>>Контакты</a>
         </div>
         <?php
         if (isset($_SESSION['user']) && !empty($_SESSION['user']))
@@ -35,7 +35,6 @@
     </header>
     <?php
     }
-
     include 'app/views/' . $content_view;
     ?>
     <footer>

@@ -18,7 +18,10 @@ class View {
 		$template_view - шаблонный вид, куда подставляется $content view, $view_title, $stylesheet, $data
 		*/
 		
-		include 'app/views/'.$template_view;
+		if ($template_view !== null)
+			include 'app/views/'.$template_view;
+		else 
+			include 'app/views/'.$content_view;
 	}
 
 	

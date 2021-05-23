@@ -21,6 +21,7 @@ define('DB_CREDS', [
 
 define('MD5_SALT', 'потомучтоямогу'); // ThisIsAdditionalSecurityMeasureDontForgetIt
 define('DB_ERROR', '🍆');
+define('ELEMENTS_PER_PAGE', 10);
 
 define('MYSQL_DATE_FORMAT', 'Y-m-d G:i:s');
 define('DATETIME_FORMAT', 'j M Y H:i');

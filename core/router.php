@@ -21,17 +21,17 @@ class Route {
 			$action_name = $routes[2];
 		}
 
-		// получаем список параметров
-		if (!empty($_GET)) {
-			$params = $_GET;
-		} else if (!empty($routes[3])) {
-			$params = $routes[3];
-		}
+		// // получаем список параметров
+		// if (!empty($_GET)) {
+		// 	$params = $_GET;
+		// } else if (!empty($routes[3])) {
+		// 	$params = $routes[3];
+		// }
 		// добавляем суффиксы
 		$model_name = $controller_name.'_model';
 		$controller_name .= '_controller';
 		$action_name .= '_action';
-		
+		// echo $controller_name . " " . $action_name;
 		/*
 		echo "Model: $model_name <br>";
 		echo "Controller: $controller_name <br>";

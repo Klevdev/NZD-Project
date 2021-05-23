@@ -24,6 +24,20 @@ class Model {
 		session_write_close();
 	}
 
+	public function count_table_rows($table_name) {
+		$mysqli = $this->db_connect();
+        if ($mysqli === 0) {
+            return DB_ERROR;
+        }
+		$query = "SELECT COUNT(*) FROM `$table_name`";
+		$result = $mysqli->query($query);
+		if (!$result) {
+			$mysqli->close();
+			return DB_ERROR;
+		}
+		return (int) $result->fetch_row()[0];
+	}
+
 	// public function validate_data($data, $remove_empty_values=false) {
 	// 	$result = [];
 	// 	$mysqli = $this->db_connect();

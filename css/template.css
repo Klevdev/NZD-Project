@@ -254,12 +254,8 @@ footer .contacts--block div {
     margin-bottom: 30px;
 }
 
-.background--block .signup--form .field--block {
+.background--block .signup--form .field--block:not(:last-child) {
     margin-right: 30px;
-}
-
-.background--block .signup--form .field--block:last-child {
-    margin-right: 0;
 }
 
 .background--block .field--block label {
@@ -350,9 +346,4 @@ footer .contacts--block div {
 
 .logout--link:hover {
     opacity: 80%;
-}
-.title {
-    font-family: montserrat-semibold;
-    font-size: 30px;
-    color: #000000;
 }

@@ -1,15 +1,85 @@
+.title {
+    font-family: montserrat-semibold;
+    font-size: 30px;
+    color: #000000;
+    margin: 25px 0;
+}
+
 .tabs {
-    width: 80vw;
+    width: 800px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    border: solid 2px #2787F5;
+    border-radius: 3px;
 }
 
 .tab {
-    padding: 0 20px;
+    display: none;
 }
 
-.tabContent {
-    
+.tab-label {
+    font-family: 'rubik-bold';
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    transition: color .2s, background-color .2s;
+}
+
+.tab-label:not(:last-child) {
+    border-right: solid 2px #2787F5;
+}
+
+.tab:not(:checked) + .tab-label {
+    background-color: #FFF;
+    color: #2787F5;
+}
+
+.tab:checked + .tab-label {
+    background-color: #2787F5;
+    color: #FFF;
+}
+
+#tabContent {
+    min-width: 1600px;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+button {
+    color: #ffffff;
+    width: 250px;
+    padding: 15px 0 16px;
+    font-size: 16px;
+    font-family: rubik-bold;
+    border: none;
+    border-radius: 3px;
+    background-color: #2787F5;
+    margin: 20px 0 30px;
+}
+
+label:not(.tab-label) {
+    display: block;
+    color: #000;
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-family: rubik-medium;
+}
+input, select {
+    width: 250px;
+    padding: 15px 20px 16px;
+    font-size: 16px;
+    font-family: rubik-medium;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 3px;
 }

@@ -63,15 +63,6 @@ function addTrain() {
         </div>`;
 }
 
-function close_form() {
-    // document.body.style.overflow = 'visible';
-    document.querySelector('.background--block').style.opacity = 0;
-    document.querySelector('.background--block form').style.opacity = 0;
-    setTimeout( () => {
-        document.querySelector('.background--block').remove();
-    }, 300);
-}
-
 function fieldIncrement(counter, increment) {
     let value = Number(document.getElementById(`count${counter}`).value.replace(" ваг.", ""));
 

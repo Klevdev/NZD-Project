@@ -72,12 +72,3 @@ function signup() {
             '</div>' +
         '</div>';
 }
-
-function close_form() {
-    // document.body.style.overflow = 'visible';
-    document.querySelector('.background--block').style.opacity = 0;
-    document.querySelector('.background--block form').style.opacity = 0;
-    setTimeout( () => {
-        document.querySelector('.background--block').remove();
-    }, 300);
-}

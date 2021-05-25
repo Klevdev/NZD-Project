@@ -197,7 +197,7 @@ footer .contacts--block a {
     font-size: 16px;
 }
 
-footer .contacts--block a:first-child {
+footer .contacts--block a:not(:last-child) {
     margin-bottom: 20px;
 }
 
@@ -266,7 +266,10 @@ footer .contacts--block div {
     color: #000000;
 }
 
-.background--block .field--block input {
+.background--block .field--block input[type="text"], 
+.background--block .field--block input[type="email"], 
+.background--block .field--block input[type="password"], 
+.background--block .field--block textarea {
     width: 250px;
     padding: 15px 20px 16px;
     font-size: 16px;
@@ -274,6 +277,11 @@ footer .contacts--block div {
     color: #000000;
     border: 1px solid #000000;
     border-radius: 3px;
+}
+textarea {
+    min-width: 530px;
+    min-height: 7em;
+    resize: none;
 }
 
 .background--block .form--block {

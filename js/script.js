@@ -1,9 +1,11 @@
-const forms = document.querySelectorAll('form');
-forms.forEach(form => {
-    form.addEventListener('submit', (ev) => {
-        ev.preventDefault();
-    });
-});
+function close_form() {
+    // document.body.style.overflow = 'visible';
+    document.querySelector('.background--block').style.opacity = 0;
+    document.querySelector('.background--block form').style.opacity = 0;
+    setTimeout( () => {
+        document.querySelector('.background--block').remove();
+    }, 300);
+}
 
 function sendMessageForm() {
     document.body.innerHTML +=
@@ -24,11 +26,15 @@ function sendMessageForm() {
                     <div class="row--block" style="justify-content: flex-start;">
                         <div class="field--block" style="margin-right: 30px">
                             <label for="phone">Телефон</label>
-                            <input type="text" name="phone" id="phone" placeholder="8-800-555-35-35"/>
+                            <input type="text" name="phone" id="phone" placeholder="8-800-555-35-35" oninput="switchCallbackTimeInput()"/>
+                            <div class="field--block" style="padding-top: 20px; display:flex; align-items: center; ">
+                                <input type="checkbox" name="req_callback" id="req_callback" style="margin-right: 10px" onchange="switchCallbackTimeInput()"/>
+                                <label for="req_callback" style="font-size: 1rem; position: relative; top: 2px;">Перезвоните мне</label>
+                            </div>
                         </div>
-                        <div class="field--block" style="padding-top: 20px; display:flex; align-items: center; ">
-                            <input type="checkbox" name="req_callback" id="req_callback" style="margin-right: 10px"/>
-                            <label for="req_callback" style="font-size: 1rem; position: relative; top: 2px;">Перезвоните мне</label>
+                        <div class="field--block">
+                            <label for="req_callback">Время для звонка</label>
+                            <input type="time" name="callback_time" id="callback_time" disabled/>
                         </div>
                     </div>
                     <div class="row--block" style="justify-content: flex-start;">
@@ -44,13 +50,15 @@ function sendMessageForm() {
         </div>`;
 }
 
-function close_form() {
-    // document.body.style.overflow = 'visible';
-    document.querySelector('.background--block').style.opacity = 0;
-    document.querySelector('.background--block form').style.opacity = 0;
-    setTimeout( () => {
-        document.querySelector('.background--block').remove();
-    }, 300);
+function switchCallbackTimeInput() {
+    let input = document.getElementById('callback_time');
+    if (document.getElementById('req_callback').checked && document.getElementById('phone').value) {
+        input.disabled = false;
+    } else {
+        input.disabled = true;
+        input.value = "";
+    }
+
 }
 
 function validate(button, submitFunction=false) {

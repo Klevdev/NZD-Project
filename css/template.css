@@ -268,7 +268,9 @@ footer .contacts--block div {
 
 .background--block .field--block input[type="text"], 
 .background--block .field--block input[type="email"], 
-.background--block .field--block input[type="password"], 
+.background--block .field--block input[type="password"],
+.background--block .field--block input[type="date"], 
+.background--block .field--block input[type="time"], 
 .background--block .field--block textarea {
     width: 250px;
     padding: 15px 20px 16px;

@@ -1,7 +1,7 @@
 <?php
 class Pagination_Component {
 	
-	static function build($cur_page, $pages, $href_base) {
+	static function build($cur_page, $pages, $action) {
 		/*
 		$params = переданные GET параметры
 
@@ -9,17 +9,9 @@ class Pagination_Component {
 		*/
 		$nearest_pages_shown = 2; // кол-во страниц (ссылок), отображаемых в пагинации рядом с текущей
 
-		$uri_params = [];
-		$cur_page = $params['page'];
-		unset($params['page']);
-		foreach ($params as $key => $value) {
-			$uri_params[] = htmlspecialchars($key) . '=' . htmlspecialchars($value);
-		}
-		$uri_params = implode('&', $uri_params);
-
-		$link_start = "<a href='" . $href_base . '?' . $uri_params . (!empty($uri_params) ? '&' : '') ."page=";
-		$link_center = "'>";
-		$link_end = "</a>";
+		$link_start = "<a href='#' onclick=getPage('$action',";
+		$link_center = ")>";
+		$link_end = '</a>';
 		
 		echo "<div class='pagination'><span>Страницы:</span>";
 

@@ -17,17 +17,22 @@ function getPage(tabName, page=1) {
             alert(request.responseText);
         } else {
             // alert(request.responseText);
-            document.getElementById('tabContent').innerHTML = request.responseText;
+            let tabContent = document.getElementById('tabContent');
+            tabContent.style.opacity = 0;
+            setTimeout( () => {
+                tabContent.innerHTML = request.responseText;
+                tabContent.style.opacity = 1;
+            }, 300);
         }
     };
     request.send();
 }
 
-function addTrain() {
+function trainForm(action) {
     document.body.innerHTML +=
         `<div class="background--block">
             <div class="form--block">
-                <form class="add-trains--form" action="/administrative/add_train" method="POST">
+                <form class="add-trains--form" action="/administrative/${action}_train" method="POST">
                     <div class="title">Добавить поезд</div>
                     <div class="row--block">
                         <div class="field--block">

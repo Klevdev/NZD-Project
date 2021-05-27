@@ -1,16 +1,34 @@
 <div class="table">
+    <div class="table-header">
+        <div class="id-row">ID</div>
+        <div>Тип поезда</div>
+        <div>Сидячие</div>
+        <div>Плацкартные</div>
+        <div>Купе</div>
+        <div>Комфорт</div>
+        <!-- <span style="visibility: hidden;">Редактировать</span> -->
+        <div style="visibility: hidden;">Удалить</div>
+    </div>
 <?php if($data['trains'] === []): ?>
-    <span style="grid-column: 1/8">Таблица пуста</span>
+    <span>Таблица пуста</span>
 <?php else:
         foreach($data['trains'] as $train): ?>
             <div class="table-row">
-                <span class="id"><?= $train['id'] ?><span>
-                <span><?= $train['name'] ?><span>  
+                <div class="id-row">
+                <?php
+                    $strlen = strlen($train['id']);
+                    for ($i = 0; $i < 5-$strlen; $i++) {
+                        echo "0";
+                    }
+                    echo $train['id'];
+                ?>
+                </div>
+                <div><?= $train['name'] ?></div>  
                 <?php foreach($train['carriages'] as $carriage_num): ?>
-                    <span class="id"><?= $carriage_num ?><span>
+                    <div class="id"><?= $carriage_num ?> ваг.</div>
                 <?php endforeach; ?>
-                <span>Редактировать<span>
-                <span>Удалить<span>
+                <!-- <a class="table-action" href="#" onclick="trainForm('edit', <?= $train['id'] ?>)">Редактировать</a> -->
+                <a class="table-action" href="#" onclick="customPrompt('Внимание', 'Вы уверены что хотите удалить поезд с id <?= $train['id'] ?>?', '/administrative/delete_train?id=<?= $train['id'] ?>', '/administrative', 'Да', 'Нет')">Удалить</a>
             </div>
     <?php
     endforeach;
@@ -19,6 +37,9 @@ endif;
 </div>
 
 <div style="display:flex; justify-content: space-between;">
-    <button onclick="addTrain()">Добавить поезд</button>
-    <?php //Pagination_Component::build($data['pagination']['cur_page'], $data['pagination']['pages'], $data['pagination']['href_base']); ?>
+    <button onclick="trainForm('add')">Добавить поезд</button>
+    <?php
+        require 'app/components/pagination_component.php';
+        Pagination_Component::build($data['pagination']['cur_page'], $data['pagination']['pages'], $data['pagination']['action']);
+    ?>
 </div>

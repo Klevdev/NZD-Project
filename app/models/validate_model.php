@@ -15,6 +15,10 @@ class Validate_Model extends Model {
 		return $errors;
 	}
 
+	private function validate_callback_time($value) {
+		return true;
+	}
+
 	private function validate_name($value) {
 		return true;
 	}

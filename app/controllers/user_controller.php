@@ -6,21 +6,6 @@ class User_Controller extends Controller {
     }
 
     public function signup_action() {
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
         $surname = $_POST['surname'];
         $name = $_POST['name'];
         $patronymic = !empty($_POST['patronymic']) ? $_POST['patronymic'] : null;
@@ -43,17 +28,6 @@ class User_Controller extends Controller {
     }
 
     public function login_action() {
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
-        // TODO валидация
         $email = $_POST['email'];
         $password = $_POST['password'];
         

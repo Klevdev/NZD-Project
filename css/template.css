@@ -272,6 +272,7 @@ footer .contacts--block div {
 .background--block .field--block input[type="date"], 
 .background--block .field--block input[type="time"], 
 .background--block .field--block textarea {
+    position: relative;
     width: 250px;
     padding: 15px 20px 16px;
     font-size: 16px;
@@ -372,4 +373,29 @@ textarea {
 
 .current-page {
     font-weight: bold;
+}
+
+.error-popup {
+    opacity: 0;
+    font-family: 'rubik-medium';
+    max-width: 250px;
+    font-size: 0.75rem;
+    color: #DDD;
+    position: absolute;
+    margin-top: 3px;
+    background-color: #000000BB;
+    padding: .5em 5px;
+    transition: opacity .2s;
+    border-radius: 2px;
+}
+
+.error-popup::before {
+    content: "";
+    border-style: solid;
+    border-width: 0px 15px 15px 15px;
+    transform: rotate(-45deg);
+    border-color: transparent #000000BB transparent transparent;
+    position: absolute;
+    left: 0px;
+    top: -2px;
 }

@@ -59,9 +59,7 @@ function switchCallbackTimeInput() {
         input.disabled = false;
     } else {
         input.disabled = true;
-        input.value = "";
     }
-
 }
 
 function validate(button, submitFunction=false) {
@@ -79,20 +77,31 @@ function validate(button, submitFunction=false) {
     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     request.onload = () => {
         if (request.status !== 200) {
-            alert(request.responseText);
+            customAlert('Техническая ошибка', 'Попробуйте позже');
+            console.error(request.responseText);
             return;
         }
         if (request.responseText !== 'OK') {
-            alert(request.responseText);
-            // alert("Надо придумать как выдавать ошибки<br>Есть идея по ключам массива с ошибками вставлять их куда-то в поля ввода, но надо придумать как не поломать при этом имеющуюся вёрстку<br>Я надеюсь это сообщение не попадёт в финальную версию");
+            let errors = JSON.parse(request.responseText);
+            for(let error in errors) {
+                let errorPopup = document.createElement('div');
+                errorPopup.className = 'error-popup';
+                errorPopup.innerText = errors[error];
+                document.getElementById(error).after(errorPopup);
+                setTimeout(() => {
+                    errorPopup.style.opacity = 1;
+                }, 200);
+                setTimeout(() => {
+                    errorPopup.remove();
+                }, 5000);
+            }
             return;
         }
         if (submitFunction) {
             submitFunction(params);
             return;
         }
-
-        parent.submit();
+        form.submit();
     };
     request.send(params);
 }
@@ -105,7 +114,8 @@ function actuallySendTheMessage(params) {
     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     request.onload = () => {
         if (request.status !== 200) {
-            alert(request.responseText);
+            customAlert('Техническая ошибка', 'Попробуйте позже');
+            console.error(request.responseText);
             return;
         }
         if (request.responseText !== 'OK') {
@@ -156,15 +166,14 @@ function customPrompt(title, message, primaryLink, secondaryLink, primaryLinkTex
 
 function gatherFormValues(form) {
     let valuesString = '';
-    let inputs = form.querySelectorAll("input, textarea");
+    let inputs = form.querySelectorAll("input[name], textarea");
     inputs.forEach(input => {
-        if (input.value !== '') {
-            valuesString += `${input.name}=`;
-            if (input.type == 'checkbox')
-                valuesString += `${input.checked}&`;
-            else
-                valuesString += `${input.value}&`;
-        }
+        valuesString += `${input.name}=`;
+        if (input.type == 'checkbox')
+            valuesString += `${input.checked}&`;
+        else
+            valuesString += `${input.value}&`;
+    
     });
     valuesString = valuesString.slice(0, -1);
     console.log(valuesString);

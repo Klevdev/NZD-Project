@@ -58,4 +58,45 @@ class User_Model extends Model {
             'role' => $result['role']
         ];
     }
+
+    public function get_orders() {
+        $mysqli = $this->db_connect();
+        if ($mysqli === 0) {
+            return DB_ERROR;
+        }
+
+        $query = 'SELECT `orders`.`id`, `routes`.`name`, `trips`.`start_time` FROM `orders`, `routes`, `trips` WHERE `orders`.`id_trip` = `trips`.`id` AND `trips`.`id_route` = `routes`.`id` AND `orders`.`email` = (SELECT `email` FROM `users` WHERE `id` = ' . $_SESSION['user']['id'] . ')';
+        $result = $mysqli->query($query);
+
+        if ($result->num_rows > 0)
+            while ($row = $result->fetch_assoc())
+                $data['orders'][] = $row;
+        else
+            $data['count'] = false;
+
+        return $data;
+    }
+
+    public function get_seats() {
+        $mysqli = $this->db_connect();
+        if ($mysqli === 0) {
+            return DB_ERROR;
+        }
+
+        $query = 'SELECT `routes`.`name`, `orders`.`id` FROM `orders`, `trips`, `routes` WHERE `orders`.`id_trip` = `trips`.`id` AND `trips`.`id_route` = `routes`.`id` AND `orders`.`email` = (SELECT `email` FROM `users` WHERE `id` = ' . $_SESSION['user']['id'] . ') AND `orders`.`id` = ' . $_GET['id'];
+        $result = $mysqli->query($query);
+
+        if($result->num_rows <= 0)
+            return false;
+        else
+            $data['order_info'] = $result->fetch_assoc();
+
+        $query = 'SELECT `orders_and_seats`.`id_carriage`, `orders_and_seats`.`seat_num`, `carriage_types`.`name` FROM `orders_and_seats`, `carriages`, `carriage_types` WHERE `carriages`.`id_carriage_type` = `carriage_types`.`id` AND `orders_and_seats`.`id_carriage` = `carriages`.`id` AND `orders_and_seats`.`id_order` = ' . $_GET['id'];
+        $result = $mysqli->query($query);
+
+        while ($row = $result->fetch_assoc())
+            $data['seats'][] = $row;
+
+        return $data;
+    }
 }

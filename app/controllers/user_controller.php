@@ -2,6 +2,7 @@
 class User_Controller extends Controller {
     
     public function __construct() {
+        $this->view = new View();
         $this->model = new User_Model();
     }
 
@@ -57,5 +58,22 @@ class User_Controller extends Controller {
         $this->model->remove_from_session('user');
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('Location: '.$host);
+    }
+
+    public function orders_action() {
+        if(isset($_GET['id']) && !empty($_GET['id']))
+        {
+            $data = $this->model->get_seats();
+
+            if (!$data)
+                $this->view->generate('error404_view.php', 'Страница не найдена');
+            else
+                $this->view->generate('order_seats_view.php', 'История заказов', ['trains'], $data);
+        }
+        else
+        {
+            $data = $this->model->get_orders();
+            $this->view->generate('order_history_view.php', 'История заказов', ['trains'], $data);
+        }
     }
 }

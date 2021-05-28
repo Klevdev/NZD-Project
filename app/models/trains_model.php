@@ -39,7 +39,7 @@ class Trains_Model extends Model {
             return DB_ERROR;
         }
 
-        $query = 'SELECT `trains`.`id`, `train_types`.`name` FROM `train_types`, `trains` WHERE `trains`.`id_train_type` = `train_types`.`id` AND `trains`.`id` = ' . $_GET['id'];
+        $query = 'SELECT `trains`.`id`, `train_types`.`name`, `train_types`.`id` AS `type_id` FROM `train_types`, `trains` WHERE `trains`.`id_train_type` = `train_types`.`id` AND `trains`.`id` = ' . $_GET['id'];
         $result = $mysqli->query($query);
 
         if ($result->num_rows <= 0)

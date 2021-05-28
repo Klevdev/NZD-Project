@@ -50,22 +50,22 @@
     <div class="title">Популярные маршруты</div>
     <div class="subtitle">Самые популярные маршруты <span>в разные уголки мира</span></div>
     <div class="routes--block-1">
-        <a href="#" class="route--link main" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/1.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+        <a onclick="(function () { document.querySelector('input[name=\'from\']').value = 'Санкт-Петербург'; document.querySelector('input[name=\'to\']').value = 'Москва'; window.scrollTo(0, 0); })();" class="route--link main" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/1.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
             <div>Санкт-Петербург -<br>Москва</div>
         </a>
         <div>
-            <a href="#" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/2.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <a onclick="(function () { document.querySelector('input[name=\'from\']').value = 'Москва'; document.querySelector('input[name=\'to\']').value = 'Санкт-Петербург'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/2.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
                 <div>Москва -<br>Санкт-Петербург</div>
             </a>
-            <a href="#" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/3.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <a onclick="(function () { document.querySelector('input[name=\'from\']').value = 'Санкт-Петербург'; document.querySelector('input[name=\'to\']').value = 'Минск'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/3.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
                 <div>Санкт-Петербург -<br>Минск</div>
             </a>
         </div>
         <div>
-            <a href="#" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/4.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <a onclick="(function () { document.querySelector('input[name=\'from\']').value = 'Москва'; document.querySelector('input[name=\'to\']').value = 'Владивосток'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/4.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
                 <div>Москва -<br>Владивосток</div>
             </a>
-            <a href="#" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/5.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <a onclick="(function () { document.querySelector('input[name=\'from\']').value = 'Москва'; document.querySelector('input[name=\'to\']').value = 'Севастополь'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/5.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
                 <div>Москва -<br>Севастополь</div>
             </a>
         </div>

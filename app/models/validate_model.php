@@ -16,54 +16,57 @@ class Validate_Model extends Model {
 	}
 
 	private function validate_callback_time($value) {
-		return true;
+		if (empty($value)) return 'Пожалуйста, заполните это поле';
+		if (mb_strlen($value) > 5) return 'Укажите время без секунд в 24-часовом формате';
+		if (!preg_match("/^[012][0-9]:[0-5][0-9]$/", $value)) return 'Некорректный формат времени';
+		return true; 
 	}
 
 	private function validate_name($value) {
 		if (empty($value)) return 'Пожалуйста, заполните это поле';
-		if (strlen($value) > 30) return 'Поле не должно быть больше 30 символов';
+		if (mb_strlen($value) > 30) return 'Поле не должно быть больше 30 символов';
 		if (preg_match("/[0-9\\\+\?\|\/{\}\]\[;:@\$\%!\^&\*\(\)=_\,\.~`]/", $value)) return 'Поле может содержать только буквы и дефис';
 		return true;
 	}
 	
 	private function validate_surname($value) {
 		if (empty($value)) return 'Пожалуйста, заполните это поле';
-		if (strlen($value) > 30) return 'Поле не должно быть больше 30 символов';
+		if (mb_strlen($value) > 30) return 'Поле не должно быть больше 30 символов';
 		if (preg_match("/[0-9\\\+\?\|\/{\}\]\[;:@\$\%!\^&\*\(\)=_\,\.~`]/", $value)) return 'Поле может содержать только буквы и дефис';
 		return true;
 	}
 	
 	private function validate_patronymic($value) {
-		if (strlen($value) > 30) return 'Поле не должно быть больше 30 символов';
+		if (mb_strlen($value) > 30) return 'Поле не должно быть больше 30 символов';
 		if (preg_match("/[0-9\\\+\?\|\/{\}\]\[;:@\$\%!\^&\*\(\)=_\,\.~`]/", $value)) return 'Поле может содержать только буквы и дефис';
 		return true;
 	}
 	
 	private function validate_email($value) {
 		if (empty($value)) return 'Пожалуйста, заполните это поле';
-		if (strlen($value) > 40) return 'Поле не должно быть больше 40 символов';
+		if (mb_strlen($value) > 40) return 'Поле не должно быть больше 40 символов';
 		if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $value)) return 'Некорректный E-mail';
 		return true;
 	}
 	
 	private function validate_phone($value) {
 		if (empty($value)) return 'Пожалуйста, заполните это поле';
-		if (strlen($value) > 13) return 'Поле не должно быть больше 13 символов';
+		if (mb_strlen($value) > 13) return 'Поле не должно быть больше 13 символов';
 		if (!preg_match("/^[\+7|8]+\d{10}$/", $value)) return 'Некорректный номер';
 		return true;
 	}
 	
 	private function validate_password($value) {
 		if (empty($value)) return 'Пожалуйста, заполните это поле';
-		if (strlen($value) < 8) return 'Поле не должно быть меньше 8 символов';
-		if (strlen($value) > 20) return 'Поле не должно быть больше 20 символов';
+		if (mb_strlen($value) < 8) return 'Поле не должно быть меньше 8 символов';
+		if (mb_strlen($value) > 20) return 'Поле не должно быть больше 20 символов';
 		return true;
 	}
 
 	private function validate_req_callback($value) {
 		return true;
 	}
-	
+
     private function validate_text($value) {
 		if (empty($value)) return 'Пожалуйста заполните это поле';
 		if (strlen($value) > 250) return 'Сообщение не должно быть больше 250 символов';

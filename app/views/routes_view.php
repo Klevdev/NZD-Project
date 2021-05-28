@@ -2,8 +2,8 @@
     <div class="table-header">
         <div class="id-row">ID</div>
         <div>Название</div>
-        <div>Станции маршрута</div>
-        <div>Время в пути</div>
+        <div style="width: 400px;">Станции маршрута</div>
+        <!-- <div>Время в пути</div> -->
         <div>Длина маршрута</div>
         <span style="visibility: hidden;">Редактировать</span>
         <div style="visibility: hidden;">Удалить</div>
@@ -23,9 +23,13 @@
                 ?>
                 </div>
                 <div><?= $route['name'] ?></div>  
-                <?php foreach($route['stations'] as $station): ?>
-                    <div><?= $station ?></div>
-                <?php endforeach; ?>
+                <div style="width: 400px;display: flex; flex-direction: column;">
+                    <?php foreach($route['stations'] as $stop_index => $station): ?>
+                        <span><?= $stop_index ?>) <?= $station['name'] ?> [<?= $station['id'] ?>]<?= $station['stop_duration'] ? " - ".$station['stop_duration']." мин." : '' ?></span>
+                    <?php endforeach; ?>
+                </div>
+                <!-- <div><?= (ceil($route['time']/60/24) > 1) ? ceil($route['time']/60/24).' д.'.(ceil($route['time']%60)).' ч.' : round($route['time']/60, 2).' ч.' ?></div>   -->
+                <div><?= $route['length'] ?> км</div>  
                 <a class="table-action" href="#" onclick="routeForm('edit', <?= $route['id'] ?>)">Редактировать</a>
                 <a class="table-action" href="#" onclick="customPrompt('Внимание', 'Вы уверены что хотите удалить маршрут <?= $route['name'] ?>?', '/administrative/delete_route?id=<?= $route['id'] ?>', '/administrative', 'Да', 'Нет')">Удалить</a>
             </div>

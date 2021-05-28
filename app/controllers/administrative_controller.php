@@ -22,8 +22,17 @@ class Administrative_Controller extends Controller {
     
     public function get_trips_action() {
         $page = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
-        echo "Check 1";
-    } 
+        $data['trips'] = $this->model->get_trips($page);
+        // echo "<pre>";
+        // var_dump($data['routes']);
+        // echo "</pre>";
+        $data['pagination'] = [
+            'cur_page' => $page,
+            'pages' => ceil($this->model->count_table_rows('trips') / ELEMENTS_PER_PAGE),
+            'action' => 'trips'
+        ];
+        $this->view->generate('trips_view.php', '', [], $data, null);
+    }
     
     public function get_routes_action() {
         $page = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
@@ -37,8 +46,18 @@ class Administrative_Controller extends Controller {
             'action' => 'routes'
         ];
         $this->view->generate('routes_view.php', '', [], $data, null);
-    } 
+    }
+
+    public function get_routes_list_action() {
+        $routes = $this->model->get_routes_list();
+        echo json_encode($routes, JSON_UNESCAPED_UNICODE);
+    }
     
+    public function get_trains_list_action() {
+        $trains = $this->model->get_trains_list();
+        echo json_encode($trains, JSON_UNESCAPED_UNICODE);
+    }
+
     public function get_trains_action() {
         $page = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
         $data['trains'] = $this->model->get_trains($page);
@@ -51,6 +70,20 @@ class Administrative_Controller extends Controller {
             'action' => 'trains'
         ];
         $this->view->generate('trains_view.php', '', [], $data, null);
+    }
+
+    public function add_trip_action() {
+        if (!isset($_POST['id_route']) || !isset($_POST['id_train']) || !isset($_POST['start_time'])) {
+            header('Location: /administrative');
+            return;
+        }
+        $id_route = $_POST['id_route'];
+        $id_train = $_POST['id_train'];
+        $start_time = $_POST['start_time'];
+
+        if ($this->model->add_trip($id_route, $id_train, $start_time) === true) {
+            header('Location: /administrative');
+        }
     }
 
     public function add_train_action() {

@@ -2,7 +2,7 @@
 
 <nav class="tabs">
     <input type="radio" class="tab" id="tripsTab" data-name="trips" name="tab">
-    <label for="tripsTab" class="tab-label">Расписание</label>
+    <label for="tripsTab" class="tab-label">Рейсы</label>
     <input type="radio" class="tab" id="routesTab" data-name="routes" name="tab">
     <label for="routesTab" class="tab-label">Маршруты</label>
     <input type="radio" class="tab" id="trainsTab" data-name="trains" name="tab">

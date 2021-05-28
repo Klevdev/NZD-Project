@@ -64,7 +64,7 @@ function sendMessageForm() {
                     <div class="row--block" style="justify-content: flex-start;">
                         <div class="field--block" style="margin-right: 30px">
                             <label for="phone">Телефон</label>
-                            <input type="text" name="phone" id="phone" placeholder="8-800-555-35-35" oninput="switchCallbackTimeInput()"/>
+                            <input type="text" name="phone" id="phone" placeholder="+79001234567" oninput="switchCallbackTimeInput()"/>
                             <div class="field--block" style="padding-top: 20px; display:flex; align-items: center; ">
                                 <input type="checkbox" name="req_callback" id="req_callback" style="margin-right: 10px" onchange="switchCallbackTimeInput()"/>
                                 <label for="req_callback" style="font-size: 1rem; position: relative; top: 2px;">Перезвоните мне</label>
@@ -118,14 +118,17 @@ function validate(button, submitFunction=false) {
         }
         if (request.responseText !== 'OK') {
             let errors = JSON.parse(request.responseText);
-            for(let error in errors) {
+            for(let field in errors) {
                 let errorPopup = document.createElement('div');
                 errorPopup.className = 'error-popup';
-                errorPopup.innerText = errors[error];
-                document.getElementById(error).after(errorPopup);
+                errorPopup.innerText = errors[field];
+                document.querySelector(`*[name="${field}"]`).after(errorPopup);
                 setTimeout(() => {
                     errorPopup.style.opacity = 1;
                 }, 200);
+                setTimeout(() => {
+                    errorPopup.style.opacity = 0;
+                }, 4800);
                 setTimeout(() => {
                     errorPopup.remove();
                 }, 5000);

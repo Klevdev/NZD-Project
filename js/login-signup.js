@@ -8,11 +8,11 @@ function login() {
                     <div class="title">Вход</div>
                     <div class="field--block">
                         <label for="email">Email</label>
-                        <input name="email" type="email" placeholder="example@email.com" required/>
+                        <input type="email" name="email" id="email" placeholder="example@email.com" required/>
                     </div>
                     <div class="field--block">
                         <label for="password">Пароль</label>
-                        <input name="password" type="password" placeholder="Пароль" required/>
+                        <input type="password" name="password" id="password" placeholder="Пароль" required/>
                     </div>
                     <button onclick="validate(this);">Войти</button>
                     <div class="another-form--link">Еще нет аккаунта?<br><a onclick="close_form(); setTimeout(()=>{signup()},300);">Зарегистироваться</a></div>
@@ -51,7 +51,7 @@ function signup() {
                         </div>
                         <div class="field--block">
                             <label for="phone">Номер телефона</label>
-                            <input type="text" name="phone" id="phone" placeholder="8 (900) 123-45-67"required/>
+                            <input type="text" name="phone" id="phone" placeholder="+79001234567"required/>
                         </div>
                     </div>
                     <div class="row--block">

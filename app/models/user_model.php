@@ -25,6 +25,7 @@ class User_Model extends Model {
         return [
             'id' => $id,
             'display_name' => mb_strtoupper(mb_substr($name, 0, 1)).'. '.$surname,
+            'role' => 1
         ];
     }
 
@@ -35,7 +36,7 @@ class User_Model extends Model {
         }
         $password = md5(md5(MD5_SALT.$password).MD5_SALT);
 
-        $query = "SELECT `id`, `name`, `surname` FROM `users` WHERE `email` = '$email' AND `password` = '$password';";
+        $query = "SELECT `id`, `name`, `surname`, `role` FROM `users` WHERE `email` = '$email' AND `password` = '$password';";
 
         $result = $mysqli->query($query);
 
@@ -54,6 +55,7 @@ class User_Model extends Model {
         return  [
             'id' => $result['id'],
             'display_name' => mb_strtoupper(mb_substr($result['name'], 0, 1)).'. '.$result['surname'],
+            'role' => $result['role']
         ];
     }
 }

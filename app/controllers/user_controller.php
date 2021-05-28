@@ -21,6 +21,7 @@ class User_Controller extends Controller {
         $this->model->save_to_session(['user' => [
             'id' => $operation['id'],
             'display_name' => $operation['display_name'],
+            'role' => $operation['role']
         ]]);
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('Location: '.$host);
@@ -46,6 +47,7 @@ class User_Controller extends Controller {
         $this->model->save_to_session(['user' => [
             'id' => $operation['id'],
             'display_name' => $operation['display_name'],
+            'role' => $operation['role']
         ]]);
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('Location: '.$host);

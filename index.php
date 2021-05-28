@@ -14,8 +14,8 @@ require_once 'core/router.php';
 // константа с данными для подключения к БД
 define('DB_CREDS', [
     'host' => '127.0.0.1',
-    'user' => 'nzd_admin',
-    'pass' => 'xqFv/o>01BgoB_Tj',
+    'user' => 'root', // nzd_admin
+    'pass' => 'root', // xqFv/o>01BgoB_Tj
     'base' => 'nzd'
 ]);
 

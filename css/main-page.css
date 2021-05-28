@@ -5,7 +5,8 @@ body {
 .header-main-screen--block {
     margin-top: 30px;
     width: 100%;
-    padding: 0 150px;
+    max-width: 1620px;
+    /*padding: 0 150px;*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -193,7 +194,8 @@ body {
 .routes--block,
 .trains--block {
     width: 100%;
-    padding: 0 150px;
+    max-width: 1620px;
+    /*padding: 0 150px;*/
     margin-top: 100px;
 }
 

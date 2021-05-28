@@ -1,0 +1,217 @@
+.trains-main--block {
+    margin-top: 50px;
+    min-width: 1620px;
+}
+
+footer {
+    margin-top: 50px;
+}
+
+.back--link {
+    display: flex;
+    justify-content: center;
+    opacity: 50%;
+}
+
+.back--link:hover {
+    opacity: 100%;
+}
+
+.back--link div {
+    font-size: 16px;
+    font-family: montserrat-medium;
+    margin-left: 15px;
+}
+
+.title {
+    margin: 30px 0;
+    font-family: montserrat-bold;
+    font-size: 30px;
+    color: #000000;
+}
+
+.line {
+    width: 100%;
+    background-color: #000000;
+    height: 1px;
+    opacity: 20%;
+}
+
+.table-header--block,
+.table-row--block {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.table-header--block div,
+.table-row--block div,
+.table-row--block a {
+    display: block;
+    width: 405px;
+    padding: 0 50px;
+}
+
+.table-row--block div,
+.table-row--block a {
+    padding: 15px 50px;
+}
+
+.table-row--block {
+    background-color: #ffffff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.table-header--block div {
+    font-size: 13px;
+    font-family: montserrat-medium;
+    color: #000000;
+    opacity: 50%;
+}
+
+.table-row--block div {
+    font-family: rubik-regular;
+    font-size: 13px;
+}
+
+.table-row--block a {
+    text-decoration: underline;
+    color: #2787F5;
+    font-size: 13px;
+    font-family: rubik-medium;
+}
+
+.table-row--block div:first-child {
+    font-family: rubik-bold;
+    font-size: 25px;
+}
+
+.subtitle {
+    font-family: montserrat-medium;
+    font-size: 16px;
+    opacity: 50%;
+    color: #000000;
+}
+
+.comment--button {
+    font-size: 16px;
+    font-family: rubik-bold;
+    color: #ffffff;
+    padding: 15px 50px;
+    background-color: #2787F5;
+    border-radius: 3px;
+    border: none;
+}
+
+.comment--button:hover {
+    background-color: #2070c8;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+form button {
+    padding: 15px 65px;
+    font-size: 16px;
+    font-family: rubik-bold;
+    background-color: #2787F5;
+    border: none;
+    border-radius: 3px;
+    color: #ffffff;
+}
+
+form button:hover {
+    background-color: #2070c8;
+}
+
+.field--block input {
+    padding: 15px 20px 16px;
+    font-size: 16px;
+    font-family: rubik-medium;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 3px;
+    display: block;
+    width: 250px;
+}
+
+.field--block div {
+    display: flex;
+    align-items: center;
+}
+
+.field--block div input {
+    width: 130px;
+    border-radius: 0;
+    text-align: center;
+}
+
+.field--block div button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #ffffff;
+    padding: 15px 20px;
+}
+
+.field--block div button:hover svg path {
+    fill: #2070c8;
+}
+
+.field--block label {
+    display: block;
+    color: #ffffff;
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-family: rubik-medium;
+}
+
+.rating-area {
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.rating-area:not(:checked) > input {
+    display: none;
+}
+
+.rating-area:not(:checked) > label {
+    float: right;
+    width: 42px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 32px;
+    line-height: 32px;
+    color: lightgrey;
+}
+
+.rating-area:not(:checked) > label:before {
+    content: '★';
+}
+
+.rating-area > input:checked ~ label {
+    color: #2787F5;
+}
+
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+    color: #2787F5;
+}
+
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+    color: #2787F5;
+}
+
+.rate-area > label:active {
+    position: relative;
+}

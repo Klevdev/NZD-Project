@@ -5,7 +5,7 @@
         </a>
         <div class="links--block">
             <a href="/" class="active">Главная</a>
-            <a href="#">Поезда</a>
+            <a href="/trains">Поезда</a>
             <a href="#">Контакты</a>
         </div>
         <?php
@@ -75,16 +75,16 @@
     <div class="title">Поезда компании «Новые Железные Дороги»</div>
     <div class="subtitle">Наши поезда <span>- наша гордость</span></div>
     <div class="trains--block-1">
-        <a href="#" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/1.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+        <a href="/trains?type_train=1" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/1.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
             <div>Ибрагим</div>
         </a>
-        <a href="#" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/2.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+        <a href="/trains?type_train=2" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/2.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
             <div>Жан</div>
         </a>
-        <a href="#" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/3.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+        <a href="/trains?type_train=3" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/3.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
             <div>Николь</div>
         </a>
-        <a href="#" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/4.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+        <a href="/trains" class="train--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/trains/4.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
             <div>Все<br>поезда</div>
         </a>
     </div>

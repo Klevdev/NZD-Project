@@ -47,6 +47,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'rubik-regular';
+    src: url('/css/fonts/Rubik/Rubik-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *,
 *::after,
 *::before {
@@ -94,10 +101,12 @@ button {
     top: 0;
     background-color: #175090;
     width: 100%;
+    min-width: 1620px;
     padding: 0 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
 }
 
 .header--block .logo--link img {
@@ -227,6 +236,7 @@ footer .contacts--block div {
     align-items: center;
     animation: fade-in .3s;
     transition: opacity .3s;
+    z-index: 2;
 }
 
 .background--block form {

@@ -23,7 +23,7 @@
         </a>
         <div class="links--block">
             <a href="/">Главная</a>
-            <a href="#">Поезда</a>
+            <a href="/trains">Поезда</a>
             <a href="#">Контакты</a>
         </div>
         <?php
@@ -50,7 +50,7 @@
         <div class="links--block">
             <div class="links-column--block">
                 <a href="/">Главная</a>
-                <a href="#">Поезда</a>
+                <a href="/trains">Поезда</a>
                 <a href="#">Контакты</a>
             </div>
             <div class="links-column--block">

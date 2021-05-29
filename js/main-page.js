@@ -33,29 +33,32 @@ function suggestStation(input) {
             console.error(request.responseText);
             return;
         }
-        if (request.responseText != '0') {
-            let stations;
-            try {
-                stations = JSON.parse(request.responseText);
-            } catch (exception) {
-                alert(exception.message);
-                return;
-            }
-            // console.log(stations);
-            let suggestions = document.createElement('div');
-            suggestions.className = 'suggestions';
-            suggestions.dataset.fieldId = input.id;
-            stations.forEach((station) => {
-                suggestions.innerHTML += `<div class="suggestion" onclick="inputStation(this)" data-station-id="${station.id}">${station.name}</div>`
-            });
-            input.after(suggestions);
+        if (request.responseText == '0') {
+            document.querySelector('.suggestions').innerHTML = '';
+            return;
         }
+        let stations;
+        try {
+            stations = JSON.parse(request.responseText);
+        } catch (exception) {
+            alert(exception.message);
+            return;
+        }
+        // console.log(stations);
+        let suggestions = document.querySelector('.suggestions') ?? document.createElement('div');
+        suggestions.className = 'suggestions';
+        suggestions.dataset.fieldId = input.id;
+        suggestions.innerHTML = '';
+        stations.forEach((station) => {
+            suggestions.innerHTML += `<div class="suggestion" onclick="chooseStation(this)" data-station-id="${station.id}">${station.name}</div>`
+        });
+        input.after(suggestions);
         return;
     };
     request.send();
 }
 
-function inputStation(suggestion) {
+function chooseStation(suggestion) {
     let fieldId = suggestion.parentNode.dataset.fieldId;
     let field = document.getElementById(fieldId);
 

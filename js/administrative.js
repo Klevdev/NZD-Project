@@ -28,12 +28,12 @@ function getPage(tabName, page=1) {
     request.send();
 }
 
-function tripForm(action) {
+function tripForm(action, id=null) {
     let modalInnerHTML = '';
     modalInnerHTML +=
         `<div class="background--block">
             <div class="form--block">
-                <form class="add-trips--form" action="/administrative/${action}_trip" method="POST">
+                <form class="add-trips--form" action="/administrative/${action}_trip${(id == null) ? '' : `?id=${id}`}" method="POST">
                     <div class="title">Добавить рейс</div>
                     <div class="row--block">
                         <div class="field--block">

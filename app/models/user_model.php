@@ -1,9 +1,5 @@
 <?php
 class User_Model extends Model {
-    public function __construct() {
-    
-    }
-
     public function signup($surname, $name, $patronymic, $email, $phone, $password) {
         $mysqli = $this->db_connect();
         if ($mysqli === 0) {

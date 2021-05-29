@@ -41,8 +41,8 @@ endif;
 
 <div style="display:flex; justify-content: space-between;">
     <div>
-        <button onclick="routeForm('add')" style="margin-right: 10px">Добавить маршрут</button>
-        <button onclick="addStation()">Добавить станцию</button>
+        <!-- <button onclick="routeForm('add')" style="margin-right: 10px">Добавить маршрут</button>
+        <button onclick="addStation()">Добавить станцию</button> -->
     </div>
     <?php
         require 'app/components/pagination_component.php';

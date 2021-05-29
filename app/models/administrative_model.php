@@ -175,6 +175,38 @@ class Administrative_Model extends Model {
         }
         return true;
     }
+    
+    public function edit_trip($id_trip, $id_route, $id_train, $start_time) {
+        $mysqli = $this->db_connect();
+        if ($mysqli === 0) {
+            return DB_ERROR.'-0';
+        }
+        
+        $query = "UPDATE `trips` SET `id_route` = '$id_route', `id_train` = '$id_train', `start_time` = '$start_time' WHERE `id` = '$id_trip'";
+        $result = $mysqli->query($query);    
+        if (!$result) {
+            echo $query;
+            $mysqli->close();
+            return DB_ERROR.'-1';
+        }
+        return true;
+    }
+
+    public function delete_trip($id_trip) {
+        $mysqli = $this->db_connect();
+        if ($mysqli === 0) {
+            return DB_ERROR.'-0';
+        }
+        
+        $query = "DELETE FROM `trips`  WHERE `id` = '$id_trip'";
+        $result = $mysqli->query($query);    
+        if (!$result) {
+            echo $query;
+            $mysqli->close();
+            return DB_ERROR.'-1';
+        }
+        return true;
+    }
 
     // private function get_route_time($id_route, $id_train) {
     //     $time = 0;

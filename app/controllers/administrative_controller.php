@@ -85,6 +85,32 @@ class Administrative_Controller extends Controller {
             header('Location: /administrative');
         }
     }
+    
+    public function edit_trip_action() {
+        if (!isset($_GET['id']) || !isset($_POST['id_route']) || !isset($_POST['id_train']) || !isset($_POST['start_time'])) {
+            header('Location: /administrative');
+            return;
+        }
+        $id_trip = $_GET['id'];
+        $id_route = $_POST['id_route'];
+        $id_train = $_POST['id_train'];
+        $start_time = $_POST['start_time'];
+
+        if ($this->model->edit_trip($id_trip, $id_route, $id_train, $start_time) === true) {
+            header('Location: /administrative');
+        }
+    }
+
+    public function delete_trip_action() {
+        if (!isset($_GET['id'])) {
+            header('Location: /administrative');
+            return;
+        }
+        $id_trip = $_GET['id'];
+        if ($this->model->delete_trip($id_trip) === true) {
+            header('Location: /administrative');
+        }
+    }
 
     public function add_train_action() {
         // var_dump($_POST);

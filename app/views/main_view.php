@@ -17,16 +17,16 @@
     </header>
     <div class="title">Новые Железные Дороги</div>
     <div class="subtitle">Безопасность<div></div>Комфорт<div></div>Доступность</div>
-    <form method="GET" action="" novalidate autocomplete="off">
+    <form method="GET" action="/search_trips" novalidate autocomplete="off" onsubmit="event.preventDefault();searchTrips(this);">
         <div class="row--block">
             <div class="field--block">
-                <label for="from">Откуда</label>
-                <input name="from" id="fieldFrom" type="text" placeholder="Санкт-Петербург" required>
+                <label for="fieldFrom">Откуда</label>
+                <input name="station_from" id="fieldFrom" type="text" placeholder="Санкт-Петербург" data-station-id="" oninput="this.dataset.stationId='';suggestStation(this)" required>
             </div>
             <button type="button" class="change--button" onclick="swapDirection();"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.20817 10.2083H2.33317V3.79166H6.88317L6.4165 4.25249C6.30666 4.36156 6.24464 4.5098 6.2441 4.6646C6.24355 4.81939 6.30452 4.96807 6.41359 5.07791C6.52266 5.18776 6.6709 5.24977 6.82569 5.25032C6.98049 5.25087 7.12916 5.1899 7.239 5.08083L8.69734 3.62249C8.75201 3.56827 8.79541 3.50375 8.82502 3.43266C8.85464 3.36158 8.86989 3.28533 8.86989 3.20833C8.86989 3.13132 8.85464 3.05508 8.82502 2.98399C8.79541 2.91291 8.75201 2.84839 8.69734 2.79416L7.239 1.33583C7.12971 1.22718 6.98186 1.1662 6.82775 1.1662C6.67365 1.1662 6.5258 1.22718 6.4165 1.33583C6.36183 1.39006 6.31843 1.45457 6.28882 1.52566C6.2592 1.59674 6.24396 1.67299 6.24396 1.74999C6.24396 1.827 6.2592 1.90325 6.28882 1.97433C6.31843 2.04542 6.36183 2.10993 6.4165 2.16416L6.87734 2.62499H1.74984C1.59513 2.62499 1.44675 2.68645 1.33736 2.79585C1.22796 2.90525 1.1665 3.05362 1.1665 3.20833V10.7917C1.1665 10.9464 1.22796 11.0947 1.33736 11.2041C1.44675 11.3135 1.59513 11.375 1.74984 11.375H3.20817C3.36288 11.375 3.51125 11.3135 3.62065 11.2041C3.73005 11.0947 3.7915 10.9464 3.7915 10.7917C3.7915 10.637 3.73005 10.4886 3.62065 10.3792C3.51125 10.2698 3.36288 10.2083 3.20817 10.2083ZM12.2498 2.62499H10.7915C10.6368 2.62499 10.4884 2.68645 10.379 2.79585C10.2696 2.90525 10.2082 3.05362 10.2082 3.20833C10.2082 3.36304 10.2696 3.51141 10.379 3.62081C10.4884 3.7302 10.6368 3.79166 10.7915 3.79166H11.6665V10.2083H6.784L7.24484 9.74749C7.29951 9.69327 7.34291 9.62875 7.37252 9.55766C7.40214 9.48658 7.41739 9.41034 7.41739 9.33333C7.41739 9.25632 7.40214 9.18008 7.37252 9.10899C7.34291 9.03791 7.29951 8.97339 7.24484 8.91916C7.13554 8.81051 6.9877 8.74953 6.83359 8.74953C6.67948 8.74953 6.53163 8.81051 6.42234 8.91916L4.964 10.3775C4.90933 10.4317 4.86593 10.4962 4.83632 10.5673C4.8067 10.6384 4.79146 10.7147 4.79146 10.7917C4.79146 10.8687 4.8067 10.9449 4.83632 11.016C4.86593 11.0871 4.90933 11.1516 4.964 11.2058L6.42234 12.6642C6.53218 12.7732 6.68085 12.8342 6.83565 12.8337C6.99045 12.8331 7.13868 12.7711 7.24775 12.6612C7.35682 12.5514 7.41779 12.4027 7.41725 12.2479C7.4167 12.0931 7.35468 11.9449 7.24484 11.8358L6.784 11.375H12.2498C12.4045 11.375 12.5529 11.3135 12.6623 11.2041C12.7717 11.0947 12.8332 10.9464 12.8332 10.7917V3.20833C12.8332 3.05362 12.7717 2.90525 12.6623 2.79585C12.5529 2.68645 12.4045 2.62499 12.2498 2.62499Z" fill="white"/></svg></button>
             <div class="field--block">
-                <label for="to">Куда</label>
-                <input name="to" id="fieldTo" type="text" placeholder="Москва" required>
+                <label for="fieldTo">Куда</label>
+                <input name="station_to" id="fieldTo" type="text" placeholder="Москва" data-station-id="" oninput="suggestStation(this)" required>
             </div>
         </div>
         <div class="row--block">
@@ -50,22 +50,22 @@
     <div class="title">Популярные маршруты</div>
     <div class="subtitle">Самые популярные маршруты <span>в разные уголки мира</span></div>
     <div class="routes--block-1">
-        <a onclick="(function () { document.querySelector('input[name=\'from\']').value = 'Санкт-Петербург'; document.querySelector('input[name=\'to\']').value = 'Москва'; window.scrollTo(0, 0); })();" class="route--link main" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/1.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+        <a onclick="(function () { document.querySelector('input[name=\'station_from\']').value = 'Санкт-Петербург'; document.querySelector('input[name=\'station_to\']').value = 'Москва'; window.scrollTo(0, 0); })();" class="route--link main" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/1.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
             <div>Санкт-Петербург -<br>Москва</div>
         </a>
         <div>
-            <a onclick="(function () { document.querySelector('input[name=\'from\']').value = 'Москва'; document.querySelector('input[name=\'to\']').value = 'Санкт-Петербург'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/2.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <a onclick="(function () { document.querySelector('input[name=\'station_from\']').value = 'Москва'; document.querySelector('input[name=\'station_to\']').value = 'Санкт-Петербург'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/2.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
                 <div>Москва -<br>Санкт-Петербург</div>
             </a>
-            <a onclick="(function () { document.querySelector('input[name=\'from\']').value = 'Санкт-Петербург'; document.querySelector('input[name=\'to\']').value = 'Минск'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/3.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <a onclick="(function () { document.querySelector('input[name=\'station_from\']').value = 'Санкт-Петербург'; document.querySelector('input[name=\'station_to\']').value = 'Минск'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/3.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
                 <div>Санкт-Петербург -<br>Минск</div>
             </a>
         </div>
         <div>
-            <a onclick="(function () { document.querySelector('input[name=\'from\']').value = 'Москва'; document.querySelector('input[name=\'to\']').value = 'Владивосток'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/4.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <a onclick="(function () { document.querySelector('input[name=\'station_from\']').value = 'Москва'; document.querySelector('input[name=\'station_to\']').value = 'Владивосток'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/4.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
                 <div>Москва -<br>Владивосток</div>
             </a>
-            <a onclick="(function () { document.querySelector('input[name=\'from\']').value = 'Москва'; document.querySelector('input[name=\'to\']').value = 'Севастополь'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/5.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
+            <a onclick="(function () { document.querySelector('input[name=\'station_from\']').value = 'Москва'; document.querySelector('input[name=\'station_to\']').value = 'Севастополь'; window.scrollTo(0, 0); })();" class="route--link" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/routes/5.png'); background-repeat: no-repeat; background-size: auto 100%; background-position: center;">
                 <div>Москва -<br>Севастополь</div>
             </a>
         </div>

@@ -278,3 +278,27 @@ body {
     font-size: 30px;
     color: #ffffff;
 }
+
+.suggestions {
+    font-family: 'rubik-light';
+    font-size: .75em;
+    background-color: #FFF;
+    position: absolute;
+    width: 250px;
+    max-height: 150px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 0 0 3px 3px; 
+}
+
+.suggestion {
+    width: 100%;
+    padding: .5em 5px;
+}
+
+.suggestion:hover {
+    color: #DDD;
+    background-color: rgba(23, 80, 145, 0.9);
+}

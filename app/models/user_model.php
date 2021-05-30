@@ -43,7 +43,7 @@ class User_Model extends Model {
         }
         
         if ($result->num_rows === 0) {
-            echo "No user found<br>$query";
+            // echo "No user found<br>$query";
             $mysqli->close();
             return false;
         }

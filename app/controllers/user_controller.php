@@ -26,10 +26,13 @@ class User_Controller extends Controller {
         ]]);
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('Location: '.$host);
-        var_dump($_SESSION);
     }
 
     public function login_action() {
+        if (!isset($_POST['email']) || !isset($_POST['password']) || empty($_POST['email']) || empty($_POST['password'])) {
+            echo "yeiks";
+            return;
+        }
         $email = $_POST['email'];
         $password = $_POST['password'];
         
@@ -41,7 +44,7 @@ class User_Controller extends Controller {
 
         if ($operation === false) {
             // TODO ошибка пользователя
-            echo "No user found";
+            echo "NO_USER_FOUND";
             return;
         }
 
@@ -50,8 +53,7 @@ class User_Controller extends Controller {
             'display_name' => $operation['display_name'],
             'role' => $operation['role']
         ]]);
-        $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
-        header('Location: '.$host);
+        echo "OK";
     }
 
     public function logout_action(){

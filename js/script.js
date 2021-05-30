@@ -46,6 +46,30 @@ function comment_train(id) {
 }
 
 function sendMessageForm() {
+    let userInfo = {
+        name: "",
+        surname: "",
+        patronymic: "",
+        display_name: "",
+        email: "",
+        phone: ""
+    };
+    let request = new XMLHttpRequest();
+    let requestPath = `/user/get_user_info`;
+    request.open('GET', requestPath, false);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    request.onload = () => {
+        if (request.status !== 200) {
+            // customAlert('Техническая ошибка', 'Попробуйте позже');
+            console.error(request.responseText);
+            // return;
+        }
+        if (request.responseText !== 'NO') {
+            userInfo = JSON.parse(request.responseText);
+        }
+    };
+    request.send();
+
     document.body.innerHTML +=
         `<div class="background--block">
             <div class="form--block">
@@ -54,17 +78,17 @@ function sendMessageForm() {
                     <div class="row--block">
                         <div class="field--block" style="margin-right: 30px">
                             <label for="name">Ваше имя</label>
-                            <input type="text" name="name" id="name" placeholder="Б. Ю. Александров"/>
+                            <input type="text" name="name" id="name" placeholder="Б. Ю. Александров" value="${userInfo.display_name}"/>
                         </div>
                         <div class="field--block">
                             <label for="email">E-mail</label>
-                            <input type="text" name="email" id="email" placeholder="example@email.com"/>
+                            <input type="text" name="email" id="email" placeholder="example@email.com" value="${userInfo.email}"/>
                         </div>
                     </div>
                     <div class="row--block" style="justify-content: flex-start;">
                         <div class="field--block" style="margin-right: 30px">
                             <label for="phone">Телефон</label>
-                            <input type="text" name="phone" id="phone" placeholder="+79001234567" oninput="switchCallbackTimeInput()"/>
+                            <input type="text" name="phone" id="phone" placeholder="+79001234567" oninput="switchCallbackTimeInput()" value="${userInfo.phone}"/>
                             <div class="field--block" style="padding-top: 20px; display:flex; align-items: center; ">
                                 <input type="checkbox" name="req_callback" id="req_callback" style="margin-right: 10px" onchange="switchCallbackTimeInput()"/>
                                 <label for="req_callback" style="font-size: 1rem; position: relative; top: 2px;">Перезвоните мне</label>

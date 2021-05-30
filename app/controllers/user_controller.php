@@ -78,4 +78,24 @@ class User_Controller extends Controller {
             $this->view->generate('order_history_view.php', 'История заказов', ['trains'], $data);
         }
     }
+
+    public function get_user_info_action() {
+        $user_id;
+        if (isset($_GET['user_id']) && !empty($_GET['user_id'])) {
+            $user_id = $_GET['user_id'];
+        } else {
+            if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])) {
+                $user_id = $_SESSION['user']['id'];
+            } else {
+                echo "NO";
+                return;
+            }
+        }
+        $result = $this->model->get_user_info($user_id);
+        if ($result !== false) {
+            echo json_encode($result, JSON_UNESCAPED_UNICODE);
+        } else {
+            echo "NO";
+        }
+    }
 }

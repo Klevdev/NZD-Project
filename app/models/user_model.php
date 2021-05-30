@@ -95,4 +95,35 @@ class User_Model extends Model {
 
         return $data;
     }
+
+    public function get_user_info($user_id) {
+        $mysqli = $this->db_connect();
+        if ($mysqli === 0) {
+            return DB_ERROR;
+        }
+        $query = "SELECT `name`, `surname`, `patronymic`, `email`, `phone` FROM `users` WHERE `id` = '$user_id'";
+
+        $result = $mysqli->query($query);
+
+        if (!$result) {
+            echo "<br>$query";
+            $mysqli->close();
+            return DB_ERROR;
+        }
+        
+        if ($result->num_rows === 0) {
+            // echo "No user found<br>$query";
+            $mysqli->close();
+            return false;
+        }
+        $result = $result->fetch_assoc();
+        return  [
+            'name' => $result['name'],
+            'surname' => $result['surname'],
+            'patronymic' => $result['patronymic'],
+            'phone' => $result['phone'],
+            'email' => $result['email'],
+            'display_name' => mb_strtoupper(mb_substr($result['name'], 0, 1)).'. '.$result['surname']
+        ];
+    }
 }

@@ -451,3 +451,7 @@ option {
     left: 0px;
     top: -2px;
 }
+
+.user--panel--icon {
+    margin-left: 10px;
+}
